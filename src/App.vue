@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">首页</router-link> | 
-      <router-link to="/about">about</router-link>
-    </div>
     <router-view></router-view>
+    <van-tabbar v-bind:route="true">
+      <van-tabbar-item to="/" icon="home-o">照片墙</van-tabbar-item>
+      <van-tabbar-item to="/about" icon="photo-o">故事</van-tabbar-item>
+      <van-tabbar-item icon="friends-o">我</van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
