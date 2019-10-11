@@ -1,10 +1,14 @@
 <template>
   <div>
-    <van-grid clickable :border="false" :square="true" :column-num="4">
-      <van-grid-item icon="add" text="上传" :style="{color:'#66CD00'}" />
-      <van-grid-item icon="star" text="收藏" :style="{color:'#CDCD00'}" />
-      <van-grid-item icon="warning" text="清理" />
-    </van-grid>
+    <van-row type="flex">
+      <van-col span="16">
+        <van-grid clickable :border="false" :square="true" :column-num="3">
+          <van-grid-item icon="photograph" text="上传" to="/upload" :style="{color:'#66CD00'}" />
+          <van-grid-item icon="star" text="收藏" :style="{color:'#CDCD00'}" />
+          <van-grid-item icon="warning" text="清理" />
+        </van-grid>
+      </van-col>
+    </van-row>
     <van-sticky>
       <van-cell title="9月24日 星期二" :title-style="{ color: '#1989fa',textAlign: 'left' }" />
     </van-sticky>
@@ -17,13 +21,22 @@
         />
       </van-grid-item>
     </van-grid>
+
+    <Footer />
   </div>
 </template>
 
 <script>
+import Footer from "@/components/footer.vue";
+
 export default {
   name: "home",
-  components: {},
+  data() {
+    return {};
+  },
+  components: {
+    Footer
+  },
   created() {
     this.$store.dispatch("increment");
   }
