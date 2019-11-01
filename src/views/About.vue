@@ -1,7 +1,9 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
-    <a href="/about/home">go home</a>
+    
+    <van-sticky>
+      <van-cell title="我的故事" :title-style="{ fontSize: '20px',textAlign: 'left' }" />
+    </van-sticky>
     <Footer />
   </div>
 </template>

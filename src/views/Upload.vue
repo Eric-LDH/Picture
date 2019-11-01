@@ -3,7 +3,13 @@
     <van-nav-bar title="上传" left-text="返回" left-arrow fixed @click-left="goHome" />
     <van-cell-group :border="false" :style="{marginTop:'50px',marginBottom:'50px'}">
       <van-cell>
-        <van-uploader :before-read="beforeRead" :after-read="afterRead" v-model="imgList" multiple />
+        <van-uploader
+          :disabled="submitting"
+          :before-read="beforeRead"
+          :after-read="afterRead"
+          v-model="imgList"
+          multiple
+        />
       </van-cell>
     </van-cell-group>
     <van-submit-bar
@@ -14,7 +20,6 @@
       suffix-label="MB"
       button-type="info"
       label="合计"
-      :loading="loading"
       @submit="sumbit"
     />
     <van-skeleton title :row="3" :loading="loading" />
@@ -51,9 +56,20 @@ export default {
       }
     },
     sumbit() {
-      this.loading = true;
+      this.$toast.success({
+        forbidClick: true,
+        message: "上传成功",
+        onClose: () => {
+          this.goHome();
+        }
+      });
       console.log(this.imgList);
     }
   }
 };
 </script>
+<style scoped>
+.van-cell > div {
+  overflow: initial;
+}
+</style>
