@@ -15,7 +15,8 @@
     <van-sticky :offset-top="43">
       <van-cell title="9月24日 星期二" :title-style="{ color: '#1989fa',textAlign: 'left' }" />
     </van-sticky>
-    <van-grid :style="{marginBottom:'50px'}" :column-num="3" :center="true" :border="false" square>
+
+    <van-grid id="ImageList" :style="{marginBottom:'50px'}" :column-num="3" :center="true" :border="false" square>
       <van-grid-item v-for="value in 10" :key="value">
         <van-image
           fit="cover"
@@ -47,3 +48,9 @@ export default {
   }
 };
 </script>
+
+<style>
+  #ImageList .van-grid-item > div {
+    padding:2px;
+  }
+</style>

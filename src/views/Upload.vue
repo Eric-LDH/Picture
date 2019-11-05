@@ -3,13 +3,8 @@
     <van-nav-bar title="上传" left-text="返回" left-arrow fixed @click-left="goHome" />
     <van-cell-group :border="false" :style="{marginTop:'50px',marginBottom:'50px'}">
       <van-cell>
-        <van-uploader
-          :disabled="submitting"
-          :before-read="beforeRead"
-          :after-read="afterRead"
-          v-model="imgList"
-          multiple
-        />
+        <van-uploader :before-read="beforeRead" :after-read="afterRead" v-model="imgList" multiple />
+        <van-skeleton title :row="3" :loading="loading" :style="{marginTop:'10px'}" />
       </van-cell>
     </van-cell-group>
     <van-submit-bar
@@ -22,22 +17,35 @@
       label="合计"
       @submit="sumbit"
     />
-    <van-skeleton title :row="3" :loading="loading" />
   </div>
 </template>
 <script>
 export default {
   data() {
-    return { imgList: [], loading: false };
+    return {
+      imgList: [],
+      loading: false
+    };
   },
   methods: {
     goHome() {
       this.$router.push("/");
     },
-    beforeRead() {
+    beforeRead(file) {
       this.loading = true;
 
-      return true;
+      let files = [file];
+      if (file.length) {
+        files = file;
+      }
+      files.forEach(cur => {
+        if (("/" + cur.type).indexOf("/image/") == -1) {
+          this.$toast.fail("请上传图片格式的文件");
+          this.loading = false;
+        }
+      });
+
+      return this.loading;
     },
     afterRead(file) {
       console.log(file);
