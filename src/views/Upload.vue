@@ -10,11 +10,11 @@
     <van-submit-bar
       :price="capacityTotal()"
       :disabled="imgList.length == 0"
-      button-text="提交"
+      button-text="上传"
       currency="∶"
       suffix-label="MB"
       button-type="info"
-      label="合计"
+      label="大小"
       @submit="sumbit"
     />
   </div>

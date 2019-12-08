@@ -66,7 +66,12 @@ export default {
         return false;
       }
 
+      this.$store.commit("increment", {
+        token: "12312313",
+        name: "朗朗"
+      });
       
+      this.$router.push("/")
     }
   }
 };

@@ -5,22 +5,21 @@ Vue.use(Vuex)
 
 const modulea = {
   state: {
-    count: 0
+    user: {
+      token: "",
+      name: "",
+    }
   },
   getters: {
 
   },
   mutations: {
-    increment(state) {
-      state.count++;
+    increment(state, user) {
+      console.log(user);
+      state.user = user;
     }
   },
   actions: {
-    increment(context) {
-      setTimeout(() => {
-        context.commit("increment");
-      }, 1000);
-    }
   }
 }
 
