@@ -44,7 +44,6 @@ export default {
     Title
   },
   created() {
-    this.$store.dispatch("increment");
   }
 };
 </script>

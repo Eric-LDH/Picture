@@ -3,28 +3,15 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const modulea = {
+const store = new Vuex.Store({
   state: {
-    user: {
-      token: "",
-      name: "",
-    }
-  },
-  getters: {
-
+    currentUser: null
   },
   mutations: {
-    increment(state, user) {
-      console.log(user);
-      state.user = user;
+    SetUser(state, user) {
+      state.currentUser = user;
     }
-  },
-  actions: {
   }
-}
+});
 
-export default new Vuex.Store({
-  modules: {
-    a: modulea
-  }
-})
+export default store

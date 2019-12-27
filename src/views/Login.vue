@@ -65,13 +65,11 @@ export default {
         this.$toast.fail(this.from.password.title + this.emptyErr);
         return false;
       }
-
-      this.$store.commit("increment", {
-        token: "12312313",
-        name: "朗朗"
-      });
-      
-      this.$router.push("/")
+      let user = { name: "朗朗", token: "4342024" };
+      this.$store.commit("SetUser", user);
+      sessionStorage.setItem("token", user.token);
+      sessionStorage.setItem("name", user.name);
+      this.$router.push("/home");
     }
   }
 };
