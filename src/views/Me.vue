@@ -27,10 +27,9 @@
     <van-cell-group style="margin-top:10px;">
       <van-cell icon="setting-o" title="设置" size="large" style="text-align:left" is-link />
       <van-cell icon="delete" title="回收站" size="large" style="text-align:left" is-link />
-      <!-- <van-cell title="退出登录" style="color:red" center size="large" /> -->
     </van-cell-group>
     <div style="margin:20px 10px">
-      <van-button type="info" size="large">退出登录</van-button>
+      <van-button type="info" size="large" @click="logout()">退出登录</van-button>
     </div>
     <Footer />
   </div>
@@ -41,6 +40,13 @@ import Footer from "@/components/footer.vue";
 export default {
   components: {
     Footer
+  },
+  methods: {
+    logout() {
+      sessionStorage.removeItem("token");
+      sessionStorage.removeItem("name");
+      this.$router.push("/");
+    }
   }
 };
 </script>
@@ -59,16 +65,16 @@ export default {
   background-image: url("../assets/me-bg.jpg");
   background-position: center center;
   background-size: cover;
-  padding-top:30px;
+  padding-top: 30px;
 }
-.userimg{
+.userimg {
   background-image: url("../assets/mebg.jpg");
-  border-radius:50%;
-  height:100px;
-  width:100px;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
   background-position: center center;
   background-size: cover;
-  margin:0 auto;
-  border:5px solid #fff;
+  margin: 0 auto;
+  border: 3px solid #fff;
 }
 </style>

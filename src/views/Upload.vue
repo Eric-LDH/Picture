@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     goHome() {
-      this.$router.push("/");
+      this.$router.push("/home");
     },
     beforeRead(file) {
       this.loading = true;
