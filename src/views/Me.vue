@@ -43,9 +43,15 @@ export default {
   },
   methods: {
     logout() {
-      sessionStorage.removeItem("token");
-      sessionStorage.removeItem("name");
-      this.$router.push("/");
+      this.$toast.loading();
+      this.$toast.loading({
+        forbidClick: true,
+        onClose: () => {
+          sessionStorage.removeItem("token");
+          sessionStorage.removeItem("name");
+          this.$router.push("/");
+        }
+      });
     }
   }
 };
