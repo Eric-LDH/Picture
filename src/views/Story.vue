@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div>
     <Title title="我的故事" />
 
     <div style="margin-bottom:50px;">
@@ -54,7 +54,7 @@
   </div>
 </template>
 <script>
-import Footer from "@/components/footer.vue";
+import Footer from "@/components/Footer.vue";
 import Title from "@/components/Title.vue";
 
 export default {

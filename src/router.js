@@ -22,6 +22,11 @@ const router = new Router({
       component: () => { return import("./views/Upload.vue") }
     },
     {
+      path: "/collect",
+      name: "collect",
+      component: () => { return import("./views/Collect.vue") }
+    },
+    {
       path: "/me",
       name: "me",
       component: () => { return import("./views/Me.vue") }
@@ -42,8 +47,7 @@ router.beforeEach((to, from, next) => {
     if (sessionStorage.getItem("token")) {
       next(true);
     }
-    else
-    {
+    else {
       alert("当前用户凭证失效，请重新登录")
       next("/");
     }

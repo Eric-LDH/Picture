@@ -14,7 +14,7 @@
       currency="∶"
       suffix-label="MB"
       button-type="info"
-      label="大小"
+      label="共"
       @submit="sumbit"
     />
   </div>

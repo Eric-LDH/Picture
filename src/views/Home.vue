@@ -6,7 +6,7 @@
       <van-col span="16">
         <van-grid clickable :border="false" :square="true" :column-num="3">
           <van-grid-item icon="photograph" text="上传" to="/upload" :style="{color:'#66CD00'}" />
-          <van-grid-item icon="star" text="收藏" :style="{color:'#CDCD00'}" />
+          <van-grid-item icon="star" text="收藏" to="/collect" :style="{color:'#CDCD00'}" />
           <van-grid-item icon="warning" text="清理" />
         </van-grid>
       </van-col>
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import Footer from "@/components/footer.vue";
+import Footer from "@/components/Footer.vue";
 import Title from "@/components/Title.vue";
 
 export default {
